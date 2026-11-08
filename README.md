@@ -26,7 +26,14 @@ People need a simple way to track  their expenses, understand their total spendi
 - GitHub
 
 ## How to run
+1.) Clone this repository:
+git clone https://github.com/Muizo/javascript-expense-calculator.git
 
+2.) Navigate into the project directory:
+cd expense-calculator
+
+3.) Run the application using Node.js:
+node index.js
 
 ## What I learned
 Through this project, I practised:
