@@ -1,5 +1,8 @@
-/*Practice one:
-Expense Data Management*/
+/*
+// PROJECT 1: EXPENSE CALCULATOR
+*/
+
+//SECTION 1: EXPENSE DATA MANAGEMENT
 const expenses = [
     {name: "Groceries", category: "Food", amount: 300},
     {name: "Gas", category: "Transport", amount: 125},
@@ -23,9 +26,7 @@ console.log(expenses[3].amount);
 console.log(expenses.length);
 
 
-/* Practice two:
-Expense Calculations*/
-//Calculate total spending
+//EXPENSE CALCULATIONS
 function calculateTotalExpenses () {
     let total = 0;
     for (let i = 0; i < expenses.length; i++) {
@@ -81,12 +82,14 @@ function findLargestExpense() {
     return largest;
 }
 const largestExpense = findLargestExpense();
-console.log("The largest expense is: " + largestExpense.name);
-console.log("Amount: " + largestExpense.amount);
+if (largestExpense !== undefined) {
+    console.log("The largest expense is: " + largestExpense.name);
+    console.log("Amount: " + largestExpense.amount);
+} else {
+    console.log("No expenses avaiolable.");
+}
 
-/*Practice 3:
-Validation and Error Handling*/
-//Validate Expense Names
+//SECTION 3: EXPENSE VALIDATION
 function validateExpenseName(name) {
 
     //Check if the name is a string
@@ -98,7 +101,7 @@ function validateExpenseName(name) {
     name = name.trim();
 
     //Check if name is empty
-    if (name == "") {
+    if (name === "") {
         return false;
     }
 
@@ -160,7 +163,7 @@ function validateExpenseAmount(amount) {
         return false;
     }
 
-    return amount;
+    return true;
 } 
 
 // Test expense amount validation
@@ -174,3 +177,83 @@ console.log(validateExpenseAmount(NaN));
 console.log(validateExpenseAmount(Infinity));
 console.log(validateExpenseAmount(50));
 console.log(validateExpenseAmount(125.50));
+
+
+//SECTION 4: EXPENSE MANAGEMENT AND TESTING
+// Add a new expense function with validation and error handling
+function addExpense(expense) {
+
+    try {
+
+        // Check whether expense is a valid object
+        if (expense === null || typeof expense !== "object" || Array.isArray(expense)) {
+            throw new Error("Invalid expense data");
+        }
+
+        // Validate expense name
+        if (!validateExpenseName(expense.name)) {
+            throw new Error("Invalid expense name");
+        }
+
+        // Validate expense category
+        if (!validateExpenseCategory(expense.category)) {
+            throw new Error("Invalid expense category");
+        }
+
+        // Validate expense amount
+        if (!validateExpenseAmount(expense.amount)) {
+            throw new Error("Invalid expense amount");
+        }
+
+        // Add valid expense to the array
+        expenses.push(expense);
+
+        console.log("Expense added successfully!");
+
+        return true;
+
+    } catch (error) {
+
+        // Display the error message
+        console.log("Error:", error.message);
+
+        return false;
+    }
+}
+
+// Valid expense
+addExpense({
+    name: "Lunch",
+    category: "Food",
+    amount: 25
+});
+
+// Invalid expense name
+addExpense({
+    name: "",
+    category: "Food",
+    amount: 50
+});
+
+// Invalid expense category
+addExpense({
+    name: "Shopping",
+    category: "",
+    amount: 100
+});
+
+// Invalid expense amount
+addExpense({
+    name: "Transport",
+    category: "Transport",
+    amount: -20
+});
+
+// Invalid expense object
+addExpense(null);
+
+// Invalid data type
+addExpense("Groceries");
+
+// Display final expenses
+console.log(expenses);

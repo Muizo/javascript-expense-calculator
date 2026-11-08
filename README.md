@@ -2,7 +2,9 @@
 
 ## Project Description
 
-A beginner Javascript project that calculates and organize personal expenses
+This expense calculator is a javascript project developed to practise programming fundamentals through building a practical expense management application.
+
+The applications stores expense information, calculates spending totals, groups expenses by category, indetifies the largest expense, and validates user-provided expensed data.
 
 ## Problem Statement 
 People need a simple way to track  their expenses, understand their total spending, and see where their money goes.
@@ -14,16 +16,30 @@ People need a simple way to track  their expenses, understand their total spendi
 - Categorize expenses
 - Calculate spending by category
 - Find the largest expense
+- Validate expense names, categories and amounts
+- Prevents invalid expenses from being added
+- Handle errors using try/catch
 
-## Technologies
+## Technologies Used
 - Javascript
 - Git
 - GitHub
 
 ## How to run
-Instructions will be added when the application is complete.
+
 
 ## What I learned
+Through this project, I practised:
+- JavaScript variables and data types.
+- Arrays and objects.
+- Functions, parameters, and return values.
+- For loops and conditionals statements.
+- Error handling using try/catch and throw new Error().
+- Debugging and testing JavaScript code.
+- Git version control and GitHub repository management.
 
 
-## Challenges and Solutions 
+## Future Improvements
+- Allow users to enter expenses through a command-line interface.
+- Sace expenses to a JSON file. 
+- Generate more detailed spending reports.
