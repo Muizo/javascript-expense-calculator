@@ -1,4 +1,4 @@
-//Expense Data Management
+/*Expense Data Management*/
 const expenses = [
     {name: "Groceries", category: "Food", amount: 300},
     {name: "Gas", category: "Transport", amount: 125},
@@ -22,7 +22,7 @@ console.log(expenses[3].amount);
 console.log(expenses.length);
 
 
-//Expense Calculations
+/*Expense Calculations*/
 
 //Calculate total spending
 function calculateTotalExpenses () {
@@ -34,8 +34,32 @@ function calculateTotalExpenses () {
 }
 
 const totalSpending = calculateTotalExpenses();
-console.log(totalSpending);
+console.log("The total spending amount is: " + totalSpending);
 
 //Add a new expense
 expenses.push({name: "Coffee", category: "Food", amount: 50});
-console.log(calculateTotalExpenses());
+console.log("The total spending amount after an added expense of $50 is: " + calculateTotalExpenses());
+
+
+//Spending by Category
+function calculateSpendingByCategory() {
+    const categoryTotals = {};
+
+    for(let i = 0; i < expenses.length; i++) {
+        const category = expenses[i].category;
+        const amount = expenses[i].amount;
+
+        if(categoryTotals[category]) {
+            categoryTotals[category] += amount;
+        }
+        else {
+            categoryTotals[category] = amount;
+        }
+        
+    }
+    return categoryTotals;
+}
+const spendingByCategory = calculateSpendingByCategory();
+
+console.log("Spending by Category: ");
+console.log(spendingByCategory);
