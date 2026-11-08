@@ -1,4 +1,5 @@
-/*Expense Data Management*/
+/*Practice one:
+Expense Data Management*/
 const expenses = [
     {name: "Groceries", category: "Food", amount: 300},
     {name: "Gas", category: "Transport", amount: 125},
@@ -22,7 +23,8 @@ console.log(expenses[3].amount);
 console.log(expenses.length);
 
 
-/*Expense Calculations*/
+/* Practice two:
+Expense Calculations*/
 
 //Calculate total spending
 function calculateTotalExpenses () {
@@ -63,3 +65,22 @@ const spendingByCategory = calculateSpendingByCategory();
 
 console.log("Spending by Category: ");
 console.log(spendingByCategory);
+
+//Find the largest expense 
+function findLargestExpense() {
+    if(expenses.length === 0) {
+        return undefined;
+    }
+
+    let largest = expenses[0];
+
+    for(let i = 1; i < expenses.length; i++) {
+        if(expenses[i].amount > largest.amount) {
+            largest = expenses[i];
+        }
+    }
+    return largest;
+}
+const largestExpense = findLargestExpense();
+console.log("The largest expense is: " + largestExpense.name);
+console.log("Amount: " + largestExpense.amount);
