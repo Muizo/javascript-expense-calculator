@@ -141,3 +141,36 @@ console.log(validateExpenseCategory(""));
 console.log(validateExpenseCategory("   "));
 console.log(validateExpenseCategory(123));
 console.log(validateExpenseCategory(null));
+
+
+//Validate Expense
+function validateExpenseAmount(amount) {
+    //Check if amount is not a number, and undefined
+    if (typeof amount !== "number") {
+        return false;
+    }
+
+    //Check if amount is not a finite number
+    if(!Number.isFinite(amount)) {
+        return false;
+    }
+    
+    //Check if the amount is negative or zero
+    if (amount <= 0 ) {   
+        return false;
+    }
+
+    return amount;
+} 
+
+// Test expense amount validation
+console.log(validateExpenseAmount(-100));
+console.log(validateExpenseAmount("Goal"));
+console.log(validateExpenseAmount("300"));
+console.log(validateExpenseAmount(null));
+console.log(validateExpenseAmount(undefined));
+console.log(validateExpenseAmount(0));
+console.log(validateExpenseAmount(NaN));
+console.log(validateExpenseAmount(Infinity));
+console.log(validateExpenseAmount(50));
+console.log(validateExpenseAmount(125.50));
