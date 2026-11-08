@@ -88,6 +88,7 @@ console.log("Amount: " + largestExpense.amount);
 Validation and Error Handling*/
 //Validate Expense Names
 function validateExpenseName(name) {
+
     //Check if the name is a string
     if (typeof name !== "string") {
         return false;
@@ -112,3 +113,31 @@ console.log(validateExpenseName(""));
 console.log(validateExpenseName("   "));
 console.log(validateExpenseName(123));
 console.log(validateExpenseName(null));
+
+//Validate Expense Categories
+function validateExpenseCategory(category) {
+
+    //Check if category is a string
+    if (typeof category != "string") {
+        return false;
+    }
+
+    //Remove whitespaces
+    category = category.trim();
+
+    //Check if category is empty
+    if(category === "") {
+        return false;
+    }
+
+    //Category is valid
+    return true;
+}
+
+//Test expense name validation
+console.log(validateExpenseCategory("Food"));
+console.log(validateExpenseCategory("Transport"));
+console.log(validateExpenseCategory(""));
+console.log(validateExpenseCategory("   "));
+console.log(validateExpenseCategory(123));
+console.log(validateExpenseCategory(null));
