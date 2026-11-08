@@ -25,7 +25,6 @@ console.log(expenses.length);
 
 /* Practice two:
 Expense Calculations*/
-
 //Calculate total spending
 function calculateTotalExpenses () {
     let total = 0;
@@ -84,3 +83,32 @@ function findLargestExpense() {
 const largestExpense = findLargestExpense();
 console.log("The largest expense is: " + largestExpense.name);
 console.log("Amount: " + largestExpense.amount);
+
+/*Practice 3:
+Validation and Error Handling*/
+//Validate Expense Names
+function validateExpenseName(name) {
+    //Check if the name is a string
+    if (typeof name !== "string") {
+        return false;
+    }
+
+    //Remove whitespaces
+    name = name.trim();
+
+    //Check if name is empty
+    if (name == "") {
+        return false;
+    }
+
+    //Name is valid
+    return true;
+}
+
+//Test expense name validation
+console.log(validateExpenseName("Groceries"));
+console.log(validateExpenseName("Rent"));
+console.log(validateExpenseName(""));
+console.log(validateExpenseName("   "));
+console.log(validateExpenseName(123));
+console.log(validateExpenseName(null));
